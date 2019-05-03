@@ -27,7 +27,7 @@ contract Delta {
       precio_base = 0.2 * 1000000000000000000;
       item = "ITEM";
       open = true;
-      time_fin = now + 90; //86400;
+      time_fin = now + (60*60*24*7); //86400;
 
       nombre = "Sin Jugador";
       email = "No Registrado";
