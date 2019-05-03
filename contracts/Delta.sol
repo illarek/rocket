@@ -1,0 +1,75 @@
+//pragma solidity >=0.4.21 <0.6.0;
+pragma solidity ^0.4.24;
+
+
+contract Delta {
+
+    // DATOS DEL ITEM
+    uint precio_base;
+    string  item;
+    bool open;
+    uint time_fin;
+    address  owner;
+
+    // DATOS DEL JUGADOR
+    string nombre;
+    string email;
+    address  dir;
+    uint precio_oferta;
+
+    // MENSAJES
+    event datos_oferta(string o_item, uint o_precio, address o_dir, uint fin, bool state);
+    event ultimo_ofertante(address my_dir, string my_email, uint my_monto);
+
+    constructor() public {
+      owner = msg.sender; //dato temporal cuante del dueño del item
+      dir = owner;
+      precio_base = 0.2 * 1000000000000000000;
+      item = "ITEM";
+      open = true;
+      time_fin = now + 90; //86400;
+
+      nombre = "Sin Jugador";
+      email = "No Registrado";
+      precio_oferta = precio_base;
+
+      emit datos_oferta(item, precio_oferta, owner, time_fin, open);
+      emit ultimo_ofertante(dir, "email aun no registrado", precio_oferta);
+    }
+
+    function ofertar2 (string memory _email) public payable{
+      if((msg.value  > precio_oferta) && open){
+          // retorna dinero al anteriro jugador
+          dir.transfer(address(this).balance-msg.value);
+          // actualiza nuevo datos
+          dir = msg.sender;
+          email = _email;
+          precio_oferta = msg.value;
+          emit ultimo_ofertante(dir, email, precio_oferta);
+      }else{
+        revert();
+      }
+    }
+
+    function terminar_subasta(uint time) public payable{
+        if(time <= 0){
+            open = false;
+            emit datos_oferta(item, precio_oferta, owner, time_fin, open);
+            emit ultimo_ofertante(dir, email, precio_oferta);
+        }
+    }
+
+    /*
+    function ofertar (string memory _email,  uint _monto) public{
+      if((_monto > precio_oferta) && open){
+          // retorna dinero al anteriro jugador
+          dir.transfer(address(this).balance);
+          // actualiza nuevo datos
+          dir = msg.sender;
+          email = _email;
+          precio_oferta = _monto;
+          emit ultimo_ofertante(dir, email, precio_oferta);
+      }
+    }*/
+
+}

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link rel="shortcut icon" href="./combo.ico" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Rocket</title>
+
+  <script src="./app.js"></script>
+
+  <!-- Bootstrap core CSS -->
+  <link href="./app/stylesheets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom fonts for this template -->
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,200i,300,300i,400,400i,600,600i,700,700i,900,900i" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Merriweather:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
+  <link href="./app/stylesheets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+
+  <!-- Custom styles for this template -->
+  <link href="./app/stylesheets/css/coming-soon.min.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <div class="overlay"></div>
+  <video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop">
+    <source src="./app/stylesheets/mp4/bg.mp4" type="video/mp4">
+  </video>
+
+  <div class="masthead">
+    <div class="masthead-bg"></div>
+    <div class="container h-100">
+      <div class="row h-100">
+        <div class="col-12 my-auto">
+          <div id="alertp" class="alert alert-warning" role="alert">
+                <strong>Warning!</strong> Remenber that you need to install metamask in the network used: main, ropsten ,rinkeby ,local or others, to be able to play!
+          </div>
+          <div id="contenidop" class="masthead-content text-white py-5 py-md-0">
+            <h1 class="mb-3">Bienvenido!</h1>
+            <p>We're working hard to finish the development of this site. Our target launch date is
+              <strong>January 2019</strong>! Sign up for updates using the form below!</p>
+              <p>
+                <strong>
+                  Producto: <span id="f_producto" >NaN</span><br>
+                  Precio base: <span id="f_precio" >NaN</span><br>
+                  Propietario: <span id="f_casa" >NaN</span><br>
+                </strong>
+              </p>
+            <h3 class="mb-3" id="f_estado_jugador">Ofertante Actual</h3>
+            <p><strong>
+                  Oferta: <span id="f_oferta" >NaN</span>
+                  <br>
+                  Email: <span id="f_email" >NaN</span>
+                  <br>
+                  <span id="f_wallet" >NaN</span>
+            </strong></p>
+
+            <div id="formulario">
+              <center>
+                <h3 class="mb-3">Tiempo Restante: <span id="f_time" >NaN</span><br></h3>
+              </center>
+              <div id="sub_formulario">
+                <div class="form-group">
+                  <input id="fi_email" type="email" class="form-control" placeholder="Ingrese su email...">
+                </div>
+                <div class="form-group">
+                  <input id="fi_monto" type="number" class="form-control" placeholder="Ingrese un monto...">
+                </div>
+                <div class="form-group">
+                  <center>
+                    <button class="btn btn-secondary" type="submit" onclick="App.play()">Ofertar!</button>
+                  </center>
+                </div>
+              </div>
+            </div>
+            <center><strong><p id="f_status" class="mt-5 mb-3 ">-The game isn't enable here-</p></strong>
+            <button id="f_terminar" class="btn btn-secondary" type="submit" onclick="App.terminar_j()">Finalizar</button></center>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="social-icons">
+    <ul class="list-unstyled text-center mb-0">
+      <li class="list-unstyled-item">
+        <a href="#">
+          <i class="fab fa-github"></i>
+        </a>
+      </li>
+      <li class="list-unstyled-item">
+        <a href="#">
+          <i class="fab fa-gitlab"></i>
+        </a>
+      </li>
+      <li class="list-unstyled-item">
+        <a href="#">
+          <i class="fab fa-medium"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="./app/stylesheets/vendor/jquery/jquery.min.js"></script>
+  <script src="./app/stylesheets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Custom scripts for this template -->
+  <script src="./app/stylesheets/js/coming-soon.min.js"></script>
+
+  <script>
+    /* * * * * * * * * * * * * * * * * *
+    * Show/hide fields conditionally
+    * * * * * * * * * * * * * * * * * */
+    (function($) {
+      $.fn.conditionize = function(options){
+
+         var settings = $.extend({
+            hideJS: true
+        }, options );
+
+        $.fn.showOrHide = function(listenTo, listenFor, $section) {
+          if ($(listenTo).is('select, input[type=text]') && $(listenTo).val() == listenFor ) {
+            $section.slideDown();
+          }
+          else if ($(listenTo + ":checked").val() == listenFor) {
+            $section.slideDown();
+          }
+          else {
+            $section.slideUp();
+          }
+        }
+
+        return this.each( function() {
+          var listenTo = "[name=" + $(this).data('cond-option') + "]";
+          var listenFor = $(this).data('cond-value');
+          var $section = $(this);
+
+          //Set up event listener
+          $(listenTo).on('change', function() {
+            $.fn.showOrHide(listenTo, listenFor, $section);
+          });
+          //If setting was chosen, hide everything first...
+          if (settings.hideJS) {
+            $(this).hide();
+          }
+          //Show based on current value on page load
+          $.fn.showOrHide(listenTo, listenFor, $section);
+        });
+      }
+    }(jQuery));
+
+     $('.conditional').conditionize();
+
+  </script>
+
+</body>
+
+</html>
