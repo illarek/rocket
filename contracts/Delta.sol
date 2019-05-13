@@ -37,8 +37,8 @@ contract Delta {
       emit ultimo_ofertante(dir, "email aun no registrado", precio_oferta);
     }
 
-    function ofertar2 (string memory _email) public payable{
-      if((msg.value  > precio_oferta) && open){
+    function ofertar (string memory _email) public payable{
+      if((msg.value  > precio_oferta) && (msg.value  >= precio_base) && open){
           // retorna dinero al anteriro jugador
           dir.transfer(address(this).balance-msg.value);
           // actualiza nuevo datos
@@ -54,22 +54,8 @@ contract Delta {
     function terminar_subasta(uint time) public payable{
         if(time <= 0){
             open = false;
-            emit datos_oferta(item, precio_oferta, owner, time_fin, open);
+            emit datos_oferta(item, precio_base, owner, time_fin, open);
             emit ultimo_ofertante(dir, email, precio_oferta);
         }
     }
-
-    /*
-    function ofertar (string memory _email,  uint _monto) public{
-      if((_monto > precio_oferta) && open){
-          // retorna dinero al anteriro jugador
-          dir.transfer(address(this).balance);
-          // actualiza nuevo datos
-          dir = msg.sender;
-          email = _email;
-          precio_oferta = _monto;
-          emit ultimo_ofertante(dir, email, precio_oferta);
-      }
-    }*/
-
 }

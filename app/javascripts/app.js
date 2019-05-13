@@ -69,7 +69,7 @@ window.App = {
     setEstado("Ejecutando transacción... (espere por favor)");
     // document.getElementById("loader").style.visibility="visible";   //visible
     Delta.deployed().then(function(instance) {
-      return instance.ofertar2(email, {
+      return instance.ofertar(email, {
         from: account,
         value: web3.toWei(monto, "ether"),
         gas: 150000
