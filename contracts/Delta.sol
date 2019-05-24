@@ -25,15 +25,15 @@ contract Delta {
       owner = msg.sender; //dato temporal cuante del dueño del item
       dir = owner;
       precio_base = 0.2 * 1000000000000000000;
-      item = "ITEM";
+      item = "ITEM_0X001";
       open = true;
       time_fin = now + (60*60*24*7); //86400;
 
       nombre = "Sin Jugador";
       email = "No Registrado";
-      precio_oferta = precio_base;
+      precio_oferta = 0;
 
-      emit datos_oferta(item, precio_oferta, owner, time_fin, open);
+      emit datos_oferta(item, precio_base, owner, time_fin, open);
       emit ultimo_ofertante(dir, "email aun no registrado", precio_oferta);
     }
 
