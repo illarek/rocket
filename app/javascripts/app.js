@@ -140,9 +140,9 @@ window.App = {
           console.log(estado_oferta);
           if(estado_oferta){
             // ABIERTO
-            console.log("Subasta Abierta");
-            setEstado("Subasta Abierta");
-            estado_jugador.innerHTML = "Ofertante Actual"
+            console.log("Licitación Abierta");
+            setEstado("Licitación Abierta");
+            estado_jugador.innerHTML = "Participante Actual"
             n = event.args.fin.valueOf() - now;
             if(n<=0){
               document.getElementById("f_terminar").style.visibility="visible";
@@ -151,9 +151,9 @@ window.App = {
           } else {
             // TERMINADO
             document.getElementById("f_terminar").style.visibility="hidden";
-            console.log("Subasta Terminada");
-            setEstado("Subasta Terminada");
-            estado_jugador.innerHTML = "Comprador - Nuevo propietario"
+            console.log("Licitación Terminada");
+            setEstado("Licitación Terminada");
+            estado_jugador.innerHTML = "Participante - Nuevo Ganador del Proyecto"
             try {
               formulario.parentNode.removeChild(formulario);
             } catch (e) {}
