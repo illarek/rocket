@@ -40,12 +40,12 @@ window.App = {
     // Get the initial account balance so it can be displayed.
     web3.eth.getAccounts(function(err, accs) {
       if (err != null) {
-        alert("There was an error fetching your accounts.");
+        alert("Hubo un error al obtener tus cuentas.");
         return;
       }
 
       if (accs.length == 0) {
-        alert("Couldn't get any accounts! Make sure your Ethereum client is configured correctly.");
+        alert("No se pudo obtener ninguna cuenta! Asegúrese de que su cliente Ethereum esté configurado correctamente.");
 
         return;
       }
@@ -142,7 +142,7 @@ window.App = {
             // ABIERTO
             console.log("Licitación Abierta");
             setEstado("Licitación Abierta");
-            estado_jugador.innerHTML = "Participante Actual"
+            estado_jugador.innerHTML = "Ultimo Participante"
             n = event.args.fin.valueOf() - now;
             if(n<=0){
               document.getElementById("f_terminar").style.visibility="visible";
@@ -153,7 +153,7 @@ window.App = {
             document.getElementById("f_terminar").style.visibility="hidden";
             console.log("Licitación Terminada");
             setEstado("Licitación Terminada");
-            estado_jugador.innerHTML = "Participante - Nuevo Ganador del Proyecto"
+            estado_jugador.innerHTML = "Ganador del la Licitación - Proyecto"
             try {
               formulario.parentNode.removeChild(formulario);
             } catch (e) {}

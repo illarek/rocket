@@ -25,7 +25,7 @@ contract Delta {
       owner = msg.sender; //dato temporal cuante del dueño del item
       dir = owner;
       precio_base = 10 * 1000000000000000000;
-      item = "ITEM_0X001";
+      item = "PROYECTO_0X001";
       open = true;
       time_fin = now + (60*60*24*7); //86400;
 
