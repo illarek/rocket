@@ -160,6 +160,9 @@ Existen muchas maneras de poner tu `Smart-Contracts` sobre alguna de las redes d
 
 
 ## Conclusion  
+Las pruebas de concepto realizadas sobre el proyecto fueron exitosas considerando que estamos en la primera etapa y la aplicación contempla sólo objetos que están representados por un código.
+
+En las etapas posteriores realizaremos la creación de un contrato que permita crear productos digitales que serán incluidas en la plataforma rocket.
 
 ## keyword
 	Dapp, Smart Contract, Ethereum, Blockchain, truffle, geth
