@@ -1,4 +1,4 @@
-# Desplegando Dapp y Smart-Contracts sobre La BlockChain Ethereum
+# Rocket: una nueva forma de vender en la blockchain
 
 Los `Smart-Contracts` son aplicaciones que se ejecutan en la `máquina virtual Ethereum`. Que no es otra cosa que una `computadora mundial` descentralizada en la que `cada nodo de la Blockchain Ethereum` proporcionan su poder computacional para sostener la red (Blockchain).
 
@@ -151,12 +151,12 @@ Existen muchas maneras de poner tu `Smart-Contracts` sobre alguna de las redes d
   ```git
     $ npm run build
   ```
-## Listo, ahora ya podemos jugar!
+## Listo, ahora ya podemos usarlo!
 
-  ![Match function](https://user-images.githubusercontent.com/7105645/46320643-fcb79c00-c5a4-11e8-9717-be1b516593ba.png)
+  ![Match function](https://cdn-images-1.medium.com/max/1120/1*75KXDVrE50xLgHGbwPQxgw.png)
 
 
-  ![Match function](https://user-images.githubusercontent.com/7105645/46320654-06410400-c5a5-11e8-8734-eb87cc2fd9b7.png)
+  ![Match function](https://cdn-images-1.medium.com/max/1120/1*7Q8cx9SFm6xHqNoE3fgKrg.png)
 
 
 ## Conclusion  
